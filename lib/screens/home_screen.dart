@@ -1,6 +1,7 @@
 import 'package:facebook_clone_ui/config/palette.dart';
 import 'package:facebook_clone_ui/data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../widgets/widgets.dart';
@@ -14,9 +15,8 @@ class HomeScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            brightness: Brightness.light,
             backgroundColor: Colors.white,
-            title: Text(
+            title: const Text(
               'facebook',
               style: TextStyle(
                 color: Palette.facebookBlue,
@@ -31,22 +31,23 @@ class HomeScreen extends StatelessWidget {
               CircleButton(
                 icon: Icons.search,
                 iconSize: 30,
-                onPressed: () => print("Object Pressed"),
+                onPressed: () => debugPrint("Object Pressed"),
               ),
               CircleButton(
                 icon: MdiIcons.facebookMessenger,
                 iconSize: 30,
-                onPressed: () => print("Object Pressed"),
+                onPressed: () => debugPrint("Object Pressed"),
               ),
             ],
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: CreatePostContainer(
               currentUser: currentUser,
             ),
           ), //To fit Container we need this
           SliverPadding(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
             sliver: SliverToBoxAdapter(
               child: Room(onlineUsers: onlineUsers),
             ),

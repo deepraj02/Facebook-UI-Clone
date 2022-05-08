@@ -15,20 +15,20 @@ class Room extends StatelessWidget {
       height: 60,
       color: Colors.white,
       child: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
           scrollDirection: Axis.horizontal,
           itemCount: 1 + onlineUsers.length,
           itemBuilder: (BuildContext context, int index) {
             if (index == 0) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              return const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: _createRoomButton(),
               );
             }
             final User user = onlineUsers[index - 1];
 
             return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: ProfileAvatar(
                 imageUrl: user.imageUrl,
                 isActive: true,
@@ -39,18 +39,19 @@ class Room extends StatelessWidget {
   }
 }
 
+// ignore: camel_case_types
 class _createRoomButton extends StatelessWidget {
   const _createRoomButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return OutlineButton(
-      onPressed: () => print("Room"),
+      onPressed: () => debugPrint("Room"),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
       color: Colors.white,
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         width: 3,
         color: Colors.blueAccent,
       ),
@@ -59,16 +60,16 @@ class _createRoomButton extends StatelessWidget {
         ShaderMask(
           shaderCallback: (rect) =>
               Palette.createRoomGradient.createShader(rect),
-          child: Icon(
+          child: const Icon(
             Icons.video_call,
             size: 35,
             color: Colors.white,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 4,
         ),
-        Text("Create\nRoom")
+        const Text("Create\nRoom")
       ]),
     );
   }

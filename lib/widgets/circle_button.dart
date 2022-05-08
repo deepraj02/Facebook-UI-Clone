@@ -15,7 +15,7 @@ class CircleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(6.0),
+      margin: const EdgeInsets.all(6.0),
       decoration: BoxDecoration(
         color: Colors.grey[200],
         shape: BoxShape.circle,

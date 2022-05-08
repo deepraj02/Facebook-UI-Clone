@@ -35,7 +35,7 @@ class ProfileAvatar extends StatelessWidget {
                   ),
                 ),
               )
-            : SizedBox.shrink()
+            : const SizedBox.shrink()
       ],
     );
   }
